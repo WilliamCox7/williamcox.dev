@@ -47,7 +47,47 @@ const Home: NextPage = () => {
             <Styled.Line2 />
             <Styled.PortfolioExplanation>Check out my best work!</Styled.PortfolioExplanation>
           </Styled.LinesContainer>
-          
+          <Styled.WorkContainer>
+            <Styled.Work href="/niteladder">
+              <Styled.WorkBorder />
+              <Styled.WorkLogoContainer>
+                <Styled.WorkLogo src="niteladder.svg" />
+                <Styled.WorkName>Nite Ladder</Styled.WorkName>
+              </Styled.WorkLogoContainer>
+              <Styled.WorkCopy>
+                A desktop app I built with Electron using React. Nite Ladder is a
+                Windows PC Fortnite plugin used to rank players in the competitive
+                community.
+              </Styled.WorkCopy>
+              <Styled.SeeMore>See More!</Styled.SeeMore>
+            </Styled.Work>
+            <Styled.Work href="/dmvp">
+              <Styled.WorkBorder />
+              <Styled.WorkLogoContainer>
+                <Styled.WorkLogo src="dmvp.svg" />
+                <Styled.WorkName>DMVP</Styled.WorkName>
+              </Styled.WorkLogoContainer>
+              <Styled.WorkCopy>
+                A mobile app I built with React Native. Using a live API, DMVP
+                (Daily Most Valuable Player) ranks NBA players while providing
+                data visualization. 
+              </Styled.WorkCopy>
+              <Styled.SeeMore>See More!</Styled.SeeMore>
+            </Styled.Work>
+            <Styled.Work href="/hubsuite">
+              <Styled.WorkBorder />
+              <Styled.WorkLogoContainer>
+                <Styled.WorkLogo src="hubsuite.svg" />
+                <Styled.WorkName>Hubsuite</Styled.WorkName>
+              </Styled.WorkLogoContainer>
+              <Styled.WorkCopy>
+                A web app I built with Next and Node. I was hired to develop software
+                that would display KPIs for franchisees trying to improve their
+                business.
+              </Styled.WorkCopy>
+              <Styled.SeeMore>See More!</Styled.SeeMore>
+            </Styled.Work>
+          </Styled.WorkContainer>
         </Styled.ContentContainer>
       </Styled.Page>
     </>

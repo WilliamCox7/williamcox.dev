@@ -19,7 +19,8 @@ const theme = {
   },
   boxShadow: {
     default: '0px 3px 6px rgba(0,0,0,0.16)',
-    inset: '0px 3px 6px inset rgba(0,0,0,0.16)'
+    inset: '0px 3px 6px inset rgba(0,0,0,0.16)',
+    lg: '0px 18px 28px -4px rgba(0, 0, 0, 0.16)',
   },
   screens: {
     mx: '1300px',

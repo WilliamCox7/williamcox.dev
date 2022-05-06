@@ -139,6 +139,75 @@ const PortfolioExplanation = styled.p`
   margin-top: 30px;
 `;
 
+const WorkContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+  margin-bottom: 60px;
+`;
+
+const SeeMore = styled.button`
+  background: transparent;
+  padding: 12px 20px;
+  border-radius: 2px;
+  font-size: 16px;
+  border: solid 1px ${theme.colors.grey[800]};
+  color: ${theme.colors.grey[800]};
+`;
+
+const Work = styled.a`
+  width: 300px;
+  height: 600px;
+  background: ${theme.colors.grey[1000]};
+  box-shadow: ${theme.boxShadow.inset};
+  border: solid 1px transparent;
+  border-radius: 2px;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  &:hover ${SeeMore} {
+    background: ${theme.colors.brand.orange};
+    color: ${theme.colors.grey[1000]};
+    border: solid 1px ${theme.colors.brand.orange};
+  }
+  &:hover {
+    border: solid 1px ${theme.colors.brand.orange};
+  }
+`;
+
+const WorkBorder = styled.div`
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  border: solid 1px ${theme.colors.brand.orange};
+  opacity: 0.25;
+  position: absolute;
+`;
+
+const WorkLogoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const WorkLogo = styled.img`
+  height: 100px;
+`;
+
+const WorkName = styled.h2`
+  color: ${theme.colors.grey[50]};
+  font-weight: 300;
+`;
+
+const WorkCopy = styled.p`
+  width: 210px;
+  color: ${theme.colors.grey[50]};
+  line-height: 24px;
+  text-align: center;
+`;
+
 const Styled = {
   Page,
   HeroContainer,
@@ -160,6 +229,14 @@ const Styled = {
   Line1,
   Line2,
   PortfolioExplanation,
+  WorkContainer,
+  Work,
+  WorkBorder,
+  WorkLogoContainer,
+  WorkLogo,
+  WorkName,
+  WorkCopy,
+  SeeMore,
 }
 
 export default Styled

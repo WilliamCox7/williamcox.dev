@@ -132,9 +132,20 @@ const Bubbles = () => {
       turnOffInterval();
       setMagnetsOn(true);
     };
+    const scroll = () => {
+      if (window.scrollY > 0) {
+        setMagnetsOn(false);
+        if (intervalRef.current) clearInterval(intervalRef.current);
+      } else {
+        setMouseToCenter();
+        setMagnetsOn(true);
+      }
+    }
     window.addEventListener('mousemove', mousemove);
+    window.addEventListener('scroll', scroll);
     return () => {
       window.removeEventListener('mousemove', mousemove);
+      window.removeEventListener('scroll', scroll);
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (timeoutRef.current) clearInterval(timeoutRef.current);
     }
