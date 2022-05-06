@@ -6,7 +6,7 @@ interface Position {
   y: number;
 }
 
-const NUM_TECH_BUBBLES = 7;
+const NUM_TECH_BUBBLES = 8;
 const TECH_MAGNATISM = 15000;
 
 const NUM_MED_BUBBLES = 25;
@@ -23,6 +23,7 @@ const TECH = [
   'react.svg',
   'typescript.svg',
   'tailwindcss.svg',
+  'electron.svg',
 ];
 
 const Bubbles = () => {

@@ -151,8 +151,9 @@ const SeeMore = styled.button`
   padding: 12px 20px;
   border-radius: 2px;
   font-size: 16px;
-  border: solid 1px ${theme.colors.grey[800]};
-  color: ${theme.colors.grey[800]};
+  border: solid 1px ${theme.colors.brand.orange};
+  color: ${theme.colors.brand.orange};
+  opacity: 0.25;
 `;
 
 const Work = styled.a`
@@ -171,7 +172,7 @@ const Work = styled.a`
   &:hover ${SeeMore} {
     background: ${theme.colors.brand.orange};
     color: ${theme.colors.grey[1000]};
-    border: solid 1px ${theme.colors.brand.orange};
+    opacity: 1;
   }
   &:hover {
     border: solid 1px ${theme.colors.brand.orange};
