@@ -1,7 +1,7 @@
 const theme = {
   colors: {
     brand: {
-      orange: '#eaab54',
+      default: '#eaab54',
     },
     grey: {
       1000: '#1A181D',
@@ -15,6 +15,15 @@ const theme = {
       200: '#eee9f2',
       100: '#f6f2fa',
       50: '#fcf8ff',
+    },
+    hubsuite: {
+      default: '#4265ED'
+    },
+    niteladder: {
+      default: '#F4C9B7'
+    },
+    dmvp: {
+      default: '#4265ED'
     },
   },
   boxShadow: {

@@ -1,52 +1,45 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Styled from '@pages/index.style'
+import Hero from '@components/Hero/Hero'
+import ContentBreak from '@components/ContentBreak/ContentBreak'
 import ProfileImage from '@components/ProfileImage/ProfileImage'
-import Bubbles from '@components/Bubbles/Bubbles'
+
+const TECH = [
+  'node.svg',
+  'express.svg',
+  'mysql.svg',
+  'nextjs.svg',
+  'react.svg',
+  'typescript.svg',
+  'tailwindcss.svg',
+  'electron.svg',
+];
 
 const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>William Cox</title>
+        <title>William Cox | Home</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
 
       <Styled.Page>
-        <Styled.HeroContainer>
-          <Styled.Motherboard src="motherboard.jpeg" />
-          <Styled.BubblesContainer>
-            <Styled.Github>
-              <Styled.Link target="_blank" href="https://github.com/WilliamCox7">
-                <Styled.LinkImage src="github.svg" />
-                <Styled.LinkText>WilliamCox7</Styled.LinkText>
-              </Styled.Link>
-            </Styled.Github>
-            <Styled.Linkedin>
-              <Styled.Link target="_blank" href="https://www.linkedin.com/in/william-cox/">
-                <Styled.LinkImage src="linkedin.svg" />
-                <Styled.LinkText>/in/william-cox</Styled.LinkText>
-              </Styled.Link>
-            </Styled.Linkedin>
-            <Styled.Linkedin />
-            <ProfileImage />
-            <Bubbles />
-            <Styled.Name>Hi, I&apos;m Will</Styled.Name>
-          </Styled.BubblesContainer>
-        </Styled.HeroContainer>
+
+        <Hero title="Hi, I'm Will" tech={TECH} brand="brand">
+          <ProfileImage />
+        </Hero>
+
         <Styled.IntroContainer>
           <Styled.Intro>Software engineer specializing in Next.js and Node.js with TypeScript</Styled.Intro>
         </Styled.IntroContainer>
+
         <Styled.ContentContainer>
-          <Styled.ContentHeaderContainer>
-            <Styled.ContentHeaderImage src="portfolio.svg" />
-            <Styled.ContentHeader>Portfolio</Styled.ContentHeader>
-          </Styled.ContentHeaderContainer>
-          <Styled.LinesContainer>
-            <Styled.Line1 />
-            <Styled.Line2 />
-            <Styled.PortfolioExplanation>Check out my best work!</Styled.PortfolioExplanation>
-          </Styled.LinesContainer>
+
+          <Styled.ContentBreakContainer>
+            <ContentBreak icon="portfolio.svg" header="Portfolio" copy="Check out my best work!" />
+          </Styled.ContentBreakContainer>
+
           <Styled.WorkContainer>
             <Styled.Work href="/niteladder">
               <Styled.WorkBorder />
@@ -88,7 +81,9 @@ const Home: NextPage = () => {
               <Styled.SeeMore>See More!</Styled.SeeMore>
             </Styled.Work>
           </Styled.WorkContainer>
+
         </Styled.ContentContainer>
+
       </Styled.Page>
     </>
   )

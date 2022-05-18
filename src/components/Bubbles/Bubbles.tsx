@@ -1,12 +1,17 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import Styled from '@components/Bubbles/Bubbles.style'
+import theme from '@theme'
 
 interface Position {
   x: number;
   y: number;
 }
 
-const NUM_TECH_BUBBLES = 8;
+interface Props {
+  tech: string[];
+  brand: 'brand' | 'hubsuite' | 'niteladder' | 'dmvp';
+}
+
 const TECH_MAGNATISM = 15000;
 
 const NUM_MED_BUBBLES = 25;
@@ -15,25 +20,14 @@ const MED_MAGNATISM = 8000;
 const NUM_SML_BUBBLES = 60;
 const SML_MAGNATISM = 8000;
 
-const TECH = [
-  'node.svg',
-  'express.svg',
-  'mysql.svg',
-  'nextjs.svg',
-  'react.svg',
-  'typescript.svg',
-  'tailwindcss.svg',
-  'electron.svg',
-];
-
-const Bubbles = () => {
+const Bubbles = ({ tech, brand }: Props) => {
 
   const [magnetsOn, setMagnetsOn] = useState<boolean>(true);
   const [position, setPosition] = useState<'relative' | 'absolute'>('relative');
   
   const mouse = useRef<Position>({ x: 0, y: 0 });
   
-  const techBubblePos = useRef<Position[]>([...new Array(NUM_TECH_BUBBLES)].map(v => ({ x: 0, y: 0 })));
+  const techBubblePos = useRef<Position[]>([...new Array(tech.length)].map(v => ({ x: 0, y: 0 })));
   const medBubblePos = useRef<Position[]>([...new Array(NUM_MED_BUBBLES)].map(v => ({ x: 0, y: 0 })));
   const smlBubblePos = useRef<Position[]>([...new Array(NUM_SML_BUBBLES)].map(v => ({ x: 0, y: 0 })));
 
@@ -159,15 +153,15 @@ const Bubbles = () => {
   return (
     <Styled.Section ref={thresholdRef}>
       <Styled.BubbleContainer ref={techBubbleRef}>
-        {[...new Array(NUM_TECH_BUBBLES)].map((v, i) => (
+        {[...new Array(tech.length)].map((v, i) => (
           <Styled.TechBubble key={i} style={{ position }}>
-            <Styled.SVG src={TECH[i]} />
+            <Styled.SVG src={tech[i]} />
           </Styled.TechBubble>
         ))}
       </Styled.BubbleContainer>
       <Styled.BubbleContainer ref={medBubbleRef}>
         {[...new Array(NUM_MED_BUBBLES)].map((v, i) => (
-          <Styled.MedBubble key={i} style={{ position }} />
+          <Styled.MedBubble key={i} style={{ position }} brand={brand} />
         ))}
       </Styled.BubbleContainer>
       <Styled.BubbleContainer ref={smlBubbleRef}>

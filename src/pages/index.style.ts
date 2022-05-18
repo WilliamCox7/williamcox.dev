@@ -8,77 +8,15 @@ const Page = styled.main`
   flex-direction: column;
 `;
 
-const HeroContainer = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  box-shadow: ${theme.boxShadow.default};
-`;
-
-const Motherboard = styled.img`
-  position: absolute;
-  width: 100%;
-  opacity: 0.25;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-`;
-
-const Github = styled.div`
-  position: absolute;
-  left: 0;
-  top: 20px;
-  cursor: pointer;
-  z-index: 2;
-`;
-
-const Linkedin = styled.div`
-  position: absolute;
-  right: 0;
-  top: 20px;
-  cursor: pointer;
-  z-index: 2;
-`;
-
-const Link = styled.a`
-  display: flex;
-  color: ${theme.colors.grey[400]};
-`;
-
-const LinkText = styled.h2`
-  font-weight: 300;
-`;
-
-const LinkImage = styled.img`
-  width: 40px;
-  margin-right: 10px;
-`;
-
-const BubblesContainer = styled.div`
-  width: ${theme.screens.mx};
-  height: 700px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-`;
-
-const Name = styled.h1`
-  font-weight: 300;
-  color: ${theme.colors.brand.orange};
-  font-size: 60px;
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  white-space: pre;
-  margin: 0;
-`;
-
 const ContentContainer = styled.div`
   width: ${theme.screens.mx};
+  @media(max-width: 1350px) {
+    width: 100%;
+  }
+`;
+
+const ContentBreakContainer = styled.div`
+  margin-top: 75px;
 `;
 
 const IntroContainer = styled.div`
@@ -86,6 +24,8 @@ const IntroContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
+  padding: 0px 20px;
 `;
 
 const Intro = styled.h2`
@@ -94,56 +34,14 @@ const Intro = styled.h2`
   color: ${theme.colors.grey[600]};
 `;
 
-const ContentHeaderContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 50px;
-`;
-
-const ContentHeaderImage = styled.img`
-  width: 50px;
-  margin-right: 15px;
-`;
-
-const ContentHeader = styled.h1`
-  font-weight: 300;
-  color: ${theme.colors.grey[50]};
-  font-size: 40px;
-`;
-
-const LinesContainer = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Line1 = styled.div`
-  width: 150px;
-  border-top: solid 1px ${theme.colors.grey[600]};
-  text-align: center;
-  margin-top: -15px;
-`;
-
-const Line2 = styled.div`
-  width: 100px;
-  border-top: solid 1px ${theme.colors.grey[600]};
-  text-align: center;
-  margin-top: 10px;
-`;
-
-const PortfolioExplanation = styled.p`
-  color: ${theme.colors.grey[400]};
-  margin-top: 30px;
-`;
-
 const WorkContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 60px;
   margin-bottom: 60px;
+  @media(max-width: 1100px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const SeeMore = styled.button`
@@ -151,8 +49,8 @@ const SeeMore = styled.button`
   padding: 12px 20px;
   border-radius: 2px;
   font-size: 16px;
-  border: solid 1px ${theme.colors.brand.orange};
-  color: ${theme.colors.brand.orange};
+  border: solid 1px ${theme.colors.brand.default};
+  color: ${theme.colors.brand.default};
   opacity: 0.25;
 `;
 
@@ -169,20 +67,25 @@ const Work = styled.a`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 50px;
+  @media(max-width: 1100px) {
+    width: 100%;
+    max-width: 600px;
+  }
   &:hover ${SeeMore} {
-    background: ${theme.colors.brand.orange};
+    background: ${theme.colors.brand.default};
     color: ${theme.colors.grey[1000]};
     opacity: 1;
   }
   &:hover {
-    border: solid 1px ${theme.colors.brand.orange};
+    border: solid 1px ${theme.colors.brand.default};
   }
 `;
 
 const WorkBorder = styled.div`
   width: calc(100% - 20px);
   height: calc(100% - 20px);
-  border: solid 1px ${theme.colors.brand.orange};
+  border: solid 1px ${theme.colors.brand.default};
   opacity: 0.25;
   position: absolute;
 `;
@@ -211,25 +114,10 @@ const WorkCopy = styled.p`
 
 const Styled = {
   Page,
-  HeroContainer,
-  Motherboard,
-  Github,
-  Linkedin,
-  Link,
-  LinkText,
-  LinkImage,
-  BubblesContainer,
-  Name,
   ContentContainer,
+  ContentBreakContainer,
   IntroContainer,
   Intro,
-  ContentHeaderContainer,
-  ContentHeaderImage,
-  ContentHeader,
-  LinesContainer,
-  Line1,
-  Line2,
-  PortfolioExplanation,
   WorkContainer,
   Work,
   WorkBorder,

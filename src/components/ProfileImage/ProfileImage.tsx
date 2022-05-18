@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Styled from '@components/ProfileImage/ProfileImage.style'
+import HeroImage from '@components/HeroImage/HeroImage';
 import dateDifference from '@utils/date-difference'
 
 const ProfileImage = () => {
@@ -25,18 +26,14 @@ const ProfileImage = () => {
   }
 
   return (
-    <Styled.Section>
-      <Styled.Border>
-        <Styled.ImageContainer>
-          <Styled.SmallImage src="smallme.png" />
-          <Styled.BigImage
-            ref={imageRef}
-            style={{ opacity: isLoaded ? 1 : 0 }}
-            src="bigme.png"
-          />
-        </Styled.ImageContainer>
-      </Styled.Border>
-    </Styled.Section>
+    <HeroImage>
+      <Styled.SmallImage src="smallme.png" />
+      <Styled.BigImage
+        ref={imageRef}
+        style={{ opacity: isLoaded ? 1 : 0 }}
+        src="bigme.png"
+      />
+    </HeroImage>
   )
 }
 

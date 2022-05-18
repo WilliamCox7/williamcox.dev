@@ -11,6 +11,9 @@ const Section = styled.section`
   flex-direction: column;
   position: absolute;
   z-index: 0;
+  @media(max-width: 800px) {
+    visibility: hidden;
+  }
 `;
 
 const BubbleContainer = styled.div`
@@ -31,9 +34,13 @@ const TechBubble = styled.div`
   z-index: 4;
 `;
 
-const MedBubble = styled.div`
+interface MedBubbleProps {
+  brand: 'brand' | 'hubsuite' | 'niteladder' | 'dmvp';
+}
+
+const MedBubble = styled.div<MedBubbleProps>`
   position: relative;
-  border: solid 1px ${theme.colors.brand.orange};
+  border: solid 1px ${p => theme.colors[p.brand].default};
   display: flex;
   justify-content: center;
   align-items: center;
