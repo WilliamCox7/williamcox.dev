@@ -5,7 +5,9 @@ import Copy from '@components/Copy/Copy'
 import HeroImage from '@components/HeroImage/HeroImage'
 import SplitScreen from '@components/SplitScreen/SplitScreen'
 import ContentBreak from '@components/ContentBreak/ContentBreak'
+import Footer from '@components/Footer/Footer'
 import Styled from '@pages/hubsuite/index.style'
+import nextUp from '@data/next-up.json'
 import theme from '@theme'
 
 const TECH = [
@@ -74,7 +76,7 @@ const Hubsuite: NextPage = () => {
             wrap="1340px"
             noReverse
             leftChild={
-              <Styled.ResponsiveImage src="hubsuite-architecture.jpeg" />
+              <Styled.ResponsiveImage src="hubsuite-architecture.jpg" />
             }
             rightChild={
               <Copy copy="Their Tableau implementation was directly connected to their database which was being fed by a python data ingestor. I wrote a headless API to read the ingested data as well as manage users." />
@@ -95,15 +97,14 @@ const Hubsuite: NextPage = () => {
         </Styled.SectionContainer>
 
         <Styled.SectionContainer>
-          <ContentBreak header="UI/UX" copy="I also have an eye for design" />
+          <ContentBreak header="Custom Email Notifications" copy="Send an email when a franchise underperforms" />
           <SplitScreen
             wrap="1340px"
-            noReverse
             leftChild={
-              <Styled.ResponsiveImage src="hubsuite-design.jpeg" />
+              <Copy copy="I set up a cron job to run a query that finds clients who aren't reporting the minimum expectation. An email would then be dynamically built and sent to the client with the account manager cc'd." />
             }
             rightChild={
-              <Copy copy="Provided with their design system, I was able to design a clean interface that allowed their customers to better understand how their businesses were performing." />
+              <Styled.ResponsiveImage src="hubsuite-email.jpg" />
             } />
         </Styled.SectionContainer>
 
@@ -136,16 +137,19 @@ const Hubsuite: NextPage = () => {
         </Styled.SectionContainer>
 
         <Styled.SectionContainer background={theme.colors.grey[1000]}>
-          <ContentBreak header="Custom Email Notifications" copy="Send an email when a franchise underperforms" />
+          <ContentBreak header="UI/UX" copy="I also have an eye for design" />
           <SplitScreen
             wrap="1340px"
+            noReverse
             leftChild={
-              <Copy copy="I set up a cron job to run a query that finds clients who aren't reporting the minimum expectation. An email would then be dynamically built and sent to the client with the account manager cc'd." />
+              <Copy copy="Provided with their design system, I was able to design a clean interface that allowed their customers to better understand how their businesses were performing." />
             }
             rightChild={
-              <Styled.ResponsiveImage src="hubsuite-email.jpg" />
+              <Styled.ResponsiveImage src="hubsuite-design.jpeg" />
             } />
         </Styled.SectionContainer>
+
+        <Footer nextObj={nextUp.hubsuite} />
 
       </Styled.Page>
     </>

@@ -28,7 +28,7 @@ const ContentHeaderImage = styled.img`
 
 const ContentHeader = styled.h1`
   font-weight: 300;
-  color: ${theme.colors.grey[50]};
+  color: ${theme.colors.brand.default};
   font-size: 40px;
   margin: 0;
   text-align: center;
@@ -47,7 +47,8 @@ const LinesContainer = styled.div`
 
 const Line1 = styled.div`
   width: 150px;
-  border-top: solid 1px ${theme.colors.grey[600]};
+  border-top: solid 1px ${theme.colors.brand.default};
+  opacity: 0.5;
   text-align: center;
   margin-top: 15px;
 `;

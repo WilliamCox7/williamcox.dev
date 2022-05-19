@@ -106,7 +106,7 @@ const Styled = {
   ResponsiveImage,
   NonResponsiveImage,
   SectionContainer,
-  PreserveImage
+  PreserveImage,
 }
 
 export default Styled

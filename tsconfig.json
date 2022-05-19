@@ -19,6 +19,7 @@
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@utils/*": ["src/utils/*"],
+      "@data/*": ["src/data/*"],
       "@theme": ["src/theme"],
     }
   },

@@ -1,0 +1,14 @@
+{
+  "dmvp": {
+    "tagline": "my web app called Hubsuite",
+    "slug": "hubsuite"
+  },
+  "hubsuite": {
+    "tagline": "my electron app called Nite Ladder",
+    "slug": "niteladder"
+  },
+  "niteladder": {
+    "tagline": "my mobile app called DMVP",
+    "slug": "dmvp"
+  }
+}

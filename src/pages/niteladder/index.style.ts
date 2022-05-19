@@ -45,10 +45,61 @@ const SectionContainer = styled.div<SectionContainerProps>`
   flex-direction: column;
   align-items: center;
   padding: 150px 0px;
+  @media(max-width: 1200px) {
+    padding: 75px 0px;
+  }
+  @media(max-width: 600px) {
+    padding: 50px 0px;
+  }
 `;
 
-const Screenshot = styled.img`
+interface ResponsiveImageProps {
+  noShadow?: boolean;
+}
+
+const ResponsiveImage = styled.img<ResponsiveImageProps>`
+  box-shadow: ${p => p.noShadow ? 'none' : theme.boxShadow.default};
+  max-width: 100%;
+`;
+
+interface NonResponsiveImageProps {
+  responsive?: string;
+}
+
+const NonResponsiveImage = styled.img<NonResponsiveImageProps>`
   box-shadow: ${theme.boxShadow.default};
+  @media(max-width: 600px) {
+    height: 700px;
+  }
+`;
+
+const PreserveImage = styled.div<NonResponsiveImageProps>`
+  overflow-x: scroll;
+  overflow-y: clip;
+  @media(max-width: ${p => p.responsive}) {
+    width: 100%;
+  }
+  @media(max-width: 600px) {
+    max-height: 700px;
+  }
+`;
+
+const Button = styled.a`
+  background: transparent;
+  padding: 12px 20px;
+  border-radius: 2px;
+  font-size: 18px;
+  border: solid 1px ${theme.colors.niteladder.default};
+  color: ${theme.colors.niteladder.default};
+  cursor: pointer;
+  &:hover {
+    background: ${theme.colors.niteladder.default};
+    color: ${theme.colors.grey[1000]};
+  }
+`;
+
+const CopyContainer = styled.div`
+  margin-top: 150px;
 `;
 
 const Styled = {
@@ -58,7 +109,11 @@ const Styled = {
   IntroContainer,
   Intro,
   SectionContainer,
-  Screenshot,
+  ResponsiveImage,
+  NonResponsiveImage,
+  PreserveImage,
+  Button,
+  CopyContainer,
 }
 
 export default Styled
