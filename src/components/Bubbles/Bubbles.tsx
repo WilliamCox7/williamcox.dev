@@ -12,13 +12,6 @@ interface Props {
   brand: 'brand' | 'hubsuite' | 'niteladder' | 'dmvp';
 }
 
-interface Ele extends Element {
-  style: {
-    left: string;
-    top: string;
-  }
-}
-
 const TECH_MAGNATISM = 15000;
 
 const NUM_MED_BUBBLES = 25;
@@ -81,9 +74,9 @@ const Bubbles = ({ tech, brand }: Props) => {
       });
       return;
     }
-    const techChildren: Ele[] = Array.from(techBubbleRef.current.children);
-    const medChildren: Ele[] = Array.from(medBubbleRef.current.children);
-    const smlChildren: Ele[] = Array.from(smlBubbleRef.current.children);
+    const techChildren = Array.from(techBubbleRef.current.children);
+    const medChildren = Array.from(medBubbleRef.current.children);
+    const smlChildren = Array.from(smlBubbleRef.current.children);
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       magnatize(techChildren, TECH_MAGNATISM, techBubblePos);
@@ -92,9 +85,9 @@ const Bubbles = ({ tech, brand }: Props) => {
     }, 15);
   }, []);
 
-  const magnatize = (children: Ele[], magnatism: number, bubblePos: React.MutableRefObject<Position[]>) => {
+  const magnatize = (children: any, magnatism: number, bubblePos: React.MutableRefObject<Position[]>) => {
     let forceX = 0, forceY = 0;
-    children.forEach((e, i) => {
+    children.forEach((e: any, i: number) => {
       const { left, top } = e.getBoundingClientRect();
       const distanceX = mouse.current.x - left;
       const distanceY = mouse.current.y - top;
