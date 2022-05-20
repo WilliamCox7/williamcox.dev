@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Styled from '@pages/index.style'
 import Hero from '@components/Hero/Hero'
 import ContentBreak from '@components/ContentBreak/ContentBreak'
+import Footer from '@components/Footer/Footer'
 import ProfileImage from '@components/ProfileImage/ProfileImage'
 
 const TECH = [
@@ -87,6 +88,8 @@ const Home: NextPage = () => {
           </Styled.WorkContainer>
 
         </Styled.ContentContainer>
+
+        <Footer />
 
       </Styled.Page>
     </>

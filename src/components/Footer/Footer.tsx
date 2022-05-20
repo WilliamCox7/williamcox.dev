@@ -2,7 +2,7 @@ import Styled from '@components/Footer/Footer.style'
 import theme from '@theme'
 
 interface Props {
-  nextObj: {
+  nextObj?: {
     tagline: string;
     slug: string;
   },
@@ -12,9 +12,9 @@ interface Props {
 const Footer = ({ nextObj, background = theme.colors.grey[1000] }: Props) => {
   return (
     <Styled.Section background={background}>
-      <Styled.NextButton href={nextObj.slug}>
+      {nextObj && <Styled.NextButton href={nextObj.slug}>
         What{"'"}s Next? Check out <Styled.Highlight>{nextObj.tagline}</Styled.Highlight>!
-      </Styled.NextButton>
+      </Styled.NextButton>}
       <Styled.LinksContainer>
         <Styled.Github>
           <Styled.Link target="_blank" href="https://github.com/WilliamCox7">
