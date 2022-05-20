@@ -81,9 +81,9 @@ const Bubbles = ({ tech, brand }: Props) => {
       });
       return;
     }
-    const techChildren = Array.from(techBubbleRef.current.children);
-    const medChildren = Array.from(medBubbleRef.current.children);
-    const smlChildren = Array.from(smlBubbleRef.current.children);
+    const techChildren: Ele[] = Array.from(techBubbleRef.current.children);
+    const medChildren: Ele[] = Array.from(medBubbleRef.current.children);
+    const smlChildren: Ele[] = Array.from(smlBubbleRef.current.children);
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       magnatize(techChildren, TECH_MAGNATISM, techBubblePos);
