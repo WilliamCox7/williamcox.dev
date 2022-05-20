@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Image from 'next/image'
 import theme from '@theme'
 
 const Section = styled.section`
@@ -11,14 +12,10 @@ const Section = styled.section`
   padding: 0px 20px;
 `;
 
-const Motherboard = styled.img`
-  position: absolute;
-  width: 100%;
+const Motherboard = styled(Image)`
   opacity: 0.25;
-  margin: auto;
-  top: 0;
-  bottom: 0;
   transition: opacity 0.3s ease-in;
+  object-fit: cover;
   @media(max-width: 780px) {
     height: 100%;
     width: auto;
