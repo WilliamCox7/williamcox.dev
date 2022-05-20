@@ -18,6 +18,7 @@ const Motherboard = styled.img`
   margin: auto;
   top: 0;
   bottom: 0;
+  transition: opacity 0.3s ease-in;
   @media(max-width: 780px) {
     height: 100%;
     width: auto;
@@ -35,6 +36,10 @@ const Back = styled.a`
   font-size: 30px;
   display: flex;
   align-items: center;
+  @media(max-width: 600px) {
+    position: relative;
+    top: 10px;
+  }
 `;
 
 const BackSVG = styled.img`
@@ -50,6 +55,10 @@ const BubblesContainer = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative;
+  @media(max-width: 600px) {
+    height: 500px;
+    justify-content: space-around;
+  }
 `;
 
 interface NameProps {
@@ -65,6 +74,9 @@ const Name = styled.h1<NameProps>`
   left: 0;
   white-space: pre;
   margin: 0;
+  @media(max-width: 600px) {
+    position: relative;
+  }
 `;
 
 const Styled = {

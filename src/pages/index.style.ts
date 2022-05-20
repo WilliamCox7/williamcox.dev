@@ -67,9 +67,10 @@ const Work = styled.a`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  margin: 20px;
   margin-bottom: 50px;
   @media(max-width: 1100px) {
-    width: 100%;
+    width: calc(100% - 40px);
     max-width: 600px;
   }
   &:hover ${SeeMore} {
