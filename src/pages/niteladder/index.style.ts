@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Image from 'next/image'
 import theme from '@theme'
 
 const Page = styled.main`
@@ -57,31 +58,9 @@ interface ResponsiveImageProps {
   noShadow?: boolean;
 }
 
-const ResponsiveImage = styled.img<ResponsiveImageProps>`
+const ResponsiveImage = styled(Image)<ResponsiveImageProps>`
   box-shadow: ${p => p.noShadow ? 'none' : theme.boxShadow.default};
   max-width: 100%;
-`;
-
-interface NonResponsiveImageProps {
-  responsive?: string;
-}
-
-const NonResponsiveImage = styled.img<NonResponsiveImageProps>`
-  box-shadow: ${theme.boxShadow.default};
-  @media(max-width: 600px) {
-    height: 700px;
-  }
-`;
-
-const PreserveImage = styled.div<NonResponsiveImageProps>`
-  overflow-x: scroll;
-  overflow-y: clip;
-  @media(max-width: ${p => p.responsive}) {
-    width: 100%;
-  }
-  @media(max-width: 600px) {
-    max-height: 700px;
-  }
 `;
 
 const Button = styled.a`
@@ -110,8 +89,6 @@ const Styled = {
   Intro,
   SectionContainer,
   ResponsiveImage,
-  NonResponsiveImage,
-  PreserveImage,
   Button,
   CopyContainer,
 }

@@ -23,7 +23,7 @@ const theme = {
       default: '#F4C9B7'
     },
     dmvp: {
-      default: '#4265ED'
+      default: '#E33C3C'
     },
   },
   boxShadow: {

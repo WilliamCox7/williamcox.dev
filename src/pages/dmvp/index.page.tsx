@@ -2,14 +2,20 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Hero from '@components/Hero/Hero'
 import HeroImage from '@components/HeroImage/HeroImage'
+import SplitScreen from '@components/SplitScreen/SplitScreen'
+import ContentBreak from '@components/ContentBreak/ContentBreak'
+import PreserveImage from '@components/PreserveImage/PreserveImage'
+import Copy from '@components/Copy/Copy'
 import Styled from '@pages/dmvp/index.style'
+import Footer from '@components/Footer/Footer'
+import nextUp from '@data/next-up.json'
+import theme from '@theme'
 
 const TECH = [
   'node.svg',
   'express.svg',
   'mysql.svg',
   'react.svg',
-  'electron.svg',
 ];
 
 const DMVP: NextPage = () => {
@@ -21,6 +27,7 @@ const DMVP: NextPage = () => {
       </Head>
 
       <Styled.Page>
+
         <Hero title="DMVP" tech={TECH} brand="dmvp">
           <HeroImage>
             <Styled.LogoContainer>
@@ -28,9 +35,67 @@ const DMVP: NextPage = () => {
             </Styled.LogoContainer>
           </HeroImage>
         </Hero>
+
         <Styled.IntroContainer>
-          <Styled.Intro>Web application built with Next.js and Node.js</Styled.Intro>
+          <Styled.Intro>Mobile application built with React Native and Node.js</Styled.Intro>
         </Styled.IntroContainer>
+
+        <Styled.SectionContainer>
+          <ContentBreak icon="portfolio.svg" header="Case Study" copy="A brief rundown on a mobile app I built" />
+          <SplitScreen
+            wrap="1370px"
+            leftChild={
+              <Styled.ResponsiveImage noShadow src="/dmvp-screenshot.png" width={338} height={700} />
+            }
+            rightChild={
+              <Styled.CopyContainer>
+                <Copy header="Daily MVP is no longer active but check out my landing page!" cta={
+                  <Styled.Button target="_blank" href="https://dmvp-landing.herokuapp.com/">Go To Landing Page</Styled.Button>
+                } />
+              </Styled.CopyContainer>
+            } />
+        </Styled.SectionContainer>
+
+        <Styled.SectionContainer background={theme.colors.grey[1000]}>
+          <ContentBreak header="Setting" copy="What I was trying to accomplish" />
+          <SplitScreen
+            wrap="1340px"
+            leftChild={
+              <Copy copy="Every day, there is about 10 NBA games going on. Before going to bed, I wanted to know about the headliner player box scores but it was really cumbersome going through the ESPN app and checking each game. So I built an app." />
+            }
+            rightChild={
+              <Styled.ResponsiveImage src="/dmvp-nba.jpeg" width={711} height={400} />
+            } />
+        </Styled.SectionContainer>
+
+        <Styled.SectionContainer>
+          <ContentBreak header="Architecture" copy="Headless API with 3rd Party Data Ingestor" />
+          <SplitScreen
+            wrap="1340px"
+            noReverse
+            leftChild={
+              <Styled.ResponsiveImage src="/dmvp-architecture.jpg" width={627} height={596} />
+            }
+            rightChild={
+              <Copy copy="The 3rd party API I was using was very data heavy and did not have a delta option so I couldn't connect my app directly. Instead, I built a &quot;REST Stop&quot; server that sat on top of the 3rd party API." />
+            } />
+        </Styled.SectionContainer>
+
+        <Styled.SectionContainer background={theme.colors.grey[1000]}>
+          <ContentBreak header="Optimization" copy="Memory management and reducing complexity" />
+          <SplitScreen
+            wrap="1340px"
+            noReverse
+            leftChild={
+              <Copy copy="My app had an endless horizontal list of cards with charts that were constantly being updated. So how do keep my app for being a memory hog and wasting battery? It became essential that I eliminate unnecessary renders." />
+            }
+            rightChild={
+              <PreserveImage src="/dmvp-usememo.png" width={524} height={572} quality={100} />
+            } />
+        </Styled.SectionContainer>
+
+        <Footer nextObj={nextUp.dmvp} background={theme.colors.grey[900]} />
+
       </Styled.Page>
     </>
   );

@@ -24,39 +24,21 @@ const Motherboard = styled.img`
   }
 `;
 
-const LinksContainer = styled.div`
+const Back = styled.a`
   position: absolute;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
   z-index: 2;
-  top: 20px;
+  top: 30px;
   left: 0;
-  @media(max-width: 600px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const Github = styled.div`
   cursor: pointer;
-`;
-
-const Linkedin = styled.div`
-  cursor: pointer;
-`;
-
-const Link = styled.a`
-  display: flex;
-  color: ${theme.colors.grey[400]};
-`;
-
-const LinkText = styled.h2`
   font-weight: 300;
+  color: ${theme.colors.brand.default};
+  font-size: 30px;
+  display: flex;
+  align-items: center;
 `;
 
-const LinkImage = styled.img`
-  width: 40px;
+const BackSVG = styled.img`
+  width: 30px;
   margin-right: 10px;
 `;
 
@@ -88,12 +70,8 @@ const Name = styled.h1<NameProps>`
 const Styled = {
   Section,
   Motherboard,
-  LinksContainer,
-  Github,
-  Linkedin,
-  Link,
-  LinkText,
-  LinkImage,
+  Back,
+  BackSVG,
   BubblesContainer,
   Name,
 };

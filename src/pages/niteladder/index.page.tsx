@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Hero from '@components/Hero/Hero'
 import HeroImage from '@components/HeroImage/HeroImage'
 import ContentBreak from '@components/ContentBreak/ContentBreak'
+import PreserveImage from '@components/PreserveImage/PreserveImage'
 import Copy from '@components/Copy/Copy'
 import SplitScreen from '@components/SplitScreen/SplitScreen'
 import Footer from '@components/Footer/Footer'
@@ -42,12 +43,10 @@ const NiteLadder: NextPage = () => {
 
         <Styled.SectionContainer>
           <ContentBreak icon="portfolio.svg" header="Case Study" copy="Short summary about a desktop app I wrote" />
-          <Styled.PreserveImage responsive="1500px">
-            <Styled.NonResponsiveImage src="niteladder-screenshot.jpeg" />
-          </Styled.PreserveImage>
+          <PreserveImage src="/niteladder-screenshot.jpeg" initWidth={1500} initHeight={900} width={1000} height={600} quality={100} />
           <Styled.CopyContainer>
             <Copy header="You can download my app on Windows PC!" cta={
-              <Styled.Button target="_blank" href="https://www.niteladder.com">Go To Landing Page</Styled.Button>
+              <Styled.Button target="_blank" href="https://www.niteladder.com/learn-more">Go To Landing Page</Styled.Button>
             } />
           </Styled.CopyContainer>
         </Styled.SectionContainer>
@@ -60,7 +59,7 @@ const NiteLadder: NextPage = () => {
               <Copy copy="Fortnite doesn't have a ranked mode. It has a competitive playlist but it doesn't really incentivize smart or quality gameplay. So I wrote an app that gives players something to play for." />
             }
             rightChild={
-              <Styled.ResponsiveImage src="niteladder-fortnite.jpg" />
+              <Styled.ResponsiveImage src="/niteladder-fortnite.jpg" width={400} height={600} />
             } />
         </Styled.SectionContainer>
 
@@ -70,7 +69,7 @@ const NiteLadder: NextPage = () => {
             wrap="1340px"
             noReverse
             leftChild={
-              <Styled.ResponsiveImage src="niteladder-architecture.jpeg" />
+              <Styled.ResponsiveImage src="/niteladder-architecture.jpeg" width={640} height={538} />
             }
             rightChild={
               <Copy copy="My app forwards data it parses from the game replay file Fortnite emits while you play and stores it in a MySQL database." />
@@ -86,9 +85,7 @@ const NiteLadder: NextPage = () => {
               <Copy wide copy="The electron app creates a child process that watches a directory where game files are managed. When a file is updated, it checks for an encryption key. With that key, it steps through and finds stats like eliminations and placement." />
             }
             rightChild={
-              <Styled.PreserveImage>
-                <Styled.NonResponsiveImage src="niteladder-watcher.png" />
-              </Styled.PreserveImage>
+              <PreserveImage src="/niteladder-watcher.png" width={838} height={586} quality={100} />
             } />
         </Styled.SectionContainer>
 
@@ -99,7 +96,7 @@ const NiteLadder: NextPage = () => {
             column
             noReverse
             leftChild={
-              <Styled.ResponsiveImage src="niteladder-format.jpg" />
+              <Styled.ResponsiveImage src="/niteladder-format.jpg" width={982} height={633} quality={100} />
             }
             rightChild={
               <Copy wide copy="Normally in Fortnite, players just try to get as many eliminations as they can. This leads to bad gameplay. To combat this, my app awards more points to players who get eliminations in the late part of the match. This causes players to be smart and cautious which provides a better experience for everyone." />
@@ -114,7 +111,7 @@ const NiteLadder: NextPage = () => {
               <Copy copy="The app displays a histogram which shows the distribution of users on the ranked ladder. Seeing where you rank relative to the community provides a desire to play well in each game you are a part of." />
             }
             rightChild={
-              <Styled.ResponsiveImage src="niteladder-ladder.jpg" />
+              <Styled.ResponsiveImage src="/niteladder-ladder.jpg" width={549} height={606} quality={100} />
             } />
         </Styled.SectionContainer>
 
@@ -123,7 +120,7 @@ const NiteLadder: NextPage = () => {
             wrap="1340px"
             noReverse
             leftChild={
-              <Styled.ResponsiveImage src="niteladder-fare.jpg" />
+              <Styled.ResponsiveImage src="/niteladder-fare.jpg" width={539} height={710} quality={100} />
             }
             rightChild={
               <Copy copy="Lastly, my app has a pay-to-play system. The higher you climb on the ladder, the more expensive the &quot;fare&quot; is. This gives meaning to your ranking." />

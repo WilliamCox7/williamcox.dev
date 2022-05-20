@@ -11,6 +11,7 @@ const Section = styled.section<SectionProps>`
   display: flex;
   flex-direction: ${p => p.wide ? 'row' : 'column'};
   justify-content: center;
+  align-items: center;
   @media(max-width: 450px) {
     width: 100%;
   }
@@ -22,6 +23,7 @@ const Header = styled.h1`
   font-weight: 300;
   line-height: 44px;
   margin: auto;
+  text-align: center;
   @media(max-width: 600px) {
     font-size: 24px;
     line-height: 32px;

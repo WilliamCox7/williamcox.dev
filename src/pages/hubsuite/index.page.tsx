@@ -5,6 +5,7 @@ import Copy from '@components/Copy/Copy'
 import HeroImage from '@components/HeroImage/HeroImage'
 import SplitScreen from '@components/SplitScreen/SplitScreen'
 import ContentBreak from '@components/ContentBreak/ContentBreak'
+import PreserveImage from '@components/PreserveImage/PreserveImage'
 import Footer from '@components/Footer/Footer'
 import Styled from '@pages/hubsuite/index.style'
 import nextUp from '@data/next-up.json'
@@ -48,7 +49,7 @@ const Hubsuite: NextPage = () => {
             wrap="1370px"
             leftSize="65%"
             leftChild={
-              <Styled.ResponsiveImage noShadow src="hubsuite-mb-screenshot.png" style={{ marginTop: '30px' }} />
+              <Styled.ResponsiveImage noShadow src="/hubsuite-mb-screenshot.png" style={{ marginTop: '30px' }} width={850} height={459} />
             }
             rightSize="35%"
             rightChild={
@@ -66,7 +67,7 @@ const Hubsuite: NextPage = () => {
               <Copy copy="Hubsuite's founder had already created an incredible MySQL backend that fed their Tableau UI. As good as this was, they needed something faster, secure, responsive, and scalable." />
             }
             rightChild={
-              <Styled.ResponsiveImage src="hubsuite-services.jpeg" />
+              <Styled.ResponsiveImage src="/hubsuite-services.jpeg" width={489} height={500} />
             } />
         </Styled.SectionContainer>
 
@@ -76,7 +77,7 @@ const Hubsuite: NextPage = () => {
             wrap="1340px"
             noReverse
             leftChild={
-              <Styled.ResponsiveImage src="hubsuite-architecture.jpg" />
+              <Styled.ResponsiveImage src="/hubsuite-architecture.jpg" width={655} height={537} />
             }
             rightChild={
               <Copy copy="Their Tableau implementation was directly connected to their database which was being fed by a python data ingestor. I wrote a headless API to read the ingested data as well as manage users." />
@@ -92,7 +93,7 @@ const Hubsuite: NextPage = () => {
               <Copy wide copy="I wrote a magic link auth system that created an easy experience for new and existing customers. Onboarding became seemless and customers were able to see results instantly." />
             }
             rightChild={
-              <Styled.NonResponsiveImage responsive="696px" src="hubsuite-signin.jpeg" />
+              <Styled.ResponsiveImage src="/hubsuite-signin.jpeg" width={696} height={460} />
             } />
         </Styled.SectionContainer>
 
@@ -104,7 +105,7 @@ const Hubsuite: NextPage = () => {
               <Copy copy="I set up a cron job to run a query that finds clients who aren't reporting the minimum expectation. An email would then be dynamically built and sent to the client with the account manager cc'd." />
             }
             rightChild={
-              <Styled.ResponsiveImage src="hubsuite-email.jpg" />
+              <Styled.ResponsiveImage src="/hubsuite-email.jpg" width={851} height={686} />
             } />
         </Styled.SectionContainer>
 
@@ -117,9 +118,7 @@ const Hubsuite: NextPage = () => {
               <Copy wide copy="The python ingestor was on a 24 hour interval. I took advantage of that window to cache each endpoint's response. Also, to ensure that all images added to the Webflow CMS were optimized, I listened for updated images and used Jimp to reduce image size." />
             }
             rightChild={
-              <Styled.PreserveImage>
-                <Styled.NonResponsiveImage src="hubsuite-memcache.png" />
-              </Styled.PreserveImage>
+              <PreserveImage src="/hubsuite-memcache.png" width={790} height={554} quality={100} />
             } />
         </Styled.SectionContainer>
 
@@ -129,7 +128,7 @@ const Hubsuite: NextPage = () => {
             wrap="1340px"
             noReverse
             leftChild={
-              <Styled.ResponsiveImage src="hubsuite-query.jpg" />
+              <Styled.ResponsiveImage src="/hubsuite-query.jpg" width={552} height={398} />
             }
             rightChild={
               <Copy copy="Heavily protected, this CMS hosts custom MySQL queries on S3. My API would then read these files and build multiple statement queries depending on the need. This provided CRUD ops for their team without any deployment." />
@@ -145,11 +144,11 @@ const Hubsuite: NextPage = () => {
               <Copy copy="Provided with their design system, I was able to design a clean interface that allowed their customers to better understand how their businesses were performing." />
             }
             rightChild={
-              <Styled.ResponsiveImage src="hubsuite-design.jpeg" />
+              <Styled.ResponsiveImage src="/hubsuite-design.jpeg" width={600} height={315} />
             } />
         </Styled.SectionContainer>
 
-        <Footer nextObj={nextUp.hubsuite} />
+        <Footer nextObj={nextUp.hubsuite} background={theme.colors.grey[900]} />
 
       </Styled.Page>
     </>

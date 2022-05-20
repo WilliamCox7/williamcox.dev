@@ -1,5 +1,6 @@
 import Styled from '@components/Hero/Hero.style'
 import Bubbles from '@components/Bubbles/Bubbles'
+import { useRouter } from 'next/router'
 
 interface Props {
   title: string;
@@ -9,24 +10,17 @@ interface Props {
 }
 
 const Hero = ({ title, children, tech, brand }: Props) => {
+
+  const router = useRouter();
+
   return (
     <Styled.Section>
       <Styled.Motherboard src="motherboard.jpeg" />
       <Styled.BubblesContainer>
-        <Styled.LinksContainer>
-          <Styled.Github>
-            <Styled.Link target="_blank" href="https://github.com/WilliamCox7">
-              <Styled.LinkImage src="github.svg" />
-              <Styled.LinkText>WilliamCox7</Styled.LinkText>
-            </Styled.Link>
-          </Styled.Github>
-          <Styled.Linkedin>
-            <Styled.Link target="_blank" href="https://www.linkedin.com/in/william-cox/">
-              <Styled.LinkImage src="linkedin.svg" />
-              <Styled.LinkText>/in/william-cox</Styled.LinkText>
-            </Styled.Link>
-          </Styled.Linkedin>
-        </Styled.LinksContainer>
+        {router.pathname !== '/' && <Styled.Back href="/">
+          <Styled.BackSVG src="back.svg" />
+          Back To Portfolio
+        </Styled.Back>}
         {children}
         <Bubbles tech={tech} brand={brand} />
         <Styled.Name brand={brand}>{title}</Styled.Name>

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Image from 'next/image'
 import theme from '@theme'
 
 const Page = styled.main`
@@ -34,12 +35,62 @@ const Intro = styled.h2`
   color: ${theme.colors.grey[600]};
 `;
 
+interface SectionContainerProps {
+  background?: string;
+}
+
+const SectionContainer = styled.div<SectionContainerProps>`
+  background: ${p => p.background};
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px 0px;
+  @media(max-width: 1200px) {
+    padding: 75px 0px;
+  }
+  @media(max-width: 600px) {
+    padding: 50px 0px;
+  }
+`;
+
+const Button = styled.a`
+  background: transparent;
+  padding: 12px 20px;
+  border-radius: 2px;
+  font-size: 18px;
+  border: solid 1px ${theme.colors.dmvp.default};
+  color: ${theme.colors.dmvp.default};
+  cursor: pointer;
+  &:hover {
+    background: ${theme.colors.dmvp.default};
+    color: ${theme.colors.grey[1000]};
+  }
+`;
+
+interface ResponsiveImageProps {
+  noShadow?: boolean;
+}
+
+const ResponsiveImage = styled(Image)<ResponsiveImageProps>`
+  box-shadow: ${p => p.noShadow ? 'none' : theme.boxShadow.default};
+  max-width: 100%;
+`;
+
+const CopyContainer = styled.div`
+  margin-bottom: 50px;
+`;
+
 const Styled = {
   Page,
   LogoContainer,
   Logo,
   IntroContainer,
   Intro,
+  SectionContainer,
+  Button,
+  ResponsiveImage,
+  CopyContainer
 }
 
 export default Styled
