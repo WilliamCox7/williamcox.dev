@@ -12,6 +12,13 @@ interface Props {
   brand: 'brand' | 'hubsuite' | 'niteladder' | 'dmvp';
 }
 
+interface Ele extends Element {
+  style: {
+    left: string;
+    top: string;
+  }
+}
+
 const TECH_MAGNATISM = 15000;
 
 const NUM_MED_BUBBLES = 25;
@@ -85,7 +92,7 @@ const Bubbles = ({ tech, brand }: Props) => {
     }, 15);
   }, []);
 
-  const magnatize = (children: Element[], magnatism: number, bubblePos: React.MutableRefObject<Position[]>) => {
+  const magnatize = (children: Ele[], magnatism: number, bubblePos: React.MutableRefObject<Position[]>) => {
     let forceX = 0, forceY = 0;
     children.forEach((e, i) => {
       const { left, top } = e.getBoundingClientRect();
