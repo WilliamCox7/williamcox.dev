@@ -16,6 +16,7 @@ const ProfileImage = () => {
           src="/bigme.png"
           layout="fill"
           quality={100}
+          priority
         />
       </Styled.ImageContainer>
     </HeroImage>

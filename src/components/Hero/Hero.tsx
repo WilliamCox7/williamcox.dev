@@ -22,8 +22,6 @@ const Hero = ({ title, children, tech, brand }: Props) => {
         onLoadingComplete={() => setIsLoaded(true)}
         style={{ opacity: isLoaded ? 0.25 : 0 }}
         src="/motherboard.jpeg"
-        width={1580}
-        height={1440}
         layout="fill"
       />
       <Styled.BubblesContainer>
