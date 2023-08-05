@@ -1,20 +1,23 @@
-import Styled from '@components/Footer/Footer.style'
-import theme from '@theme'
+import Styled from "@components/Footer/Footer.style";
+import theme from "@theme";
 
 interface Props {
   nextObj?: {
     tagline: string;
     slug: string;
-  },
+  };
   background?: string;
 }
 
 const Footer = ({ nextObj, background = theme.colors.grey[1000] }: Props) => {
   return (
     <Styled.Section background={background}>
-      {nextObj && <Styled.NextButton href={nextObj.slug}>
-        What{"'"}s Next? Check out <Styled.Highlight>{nextObj.tagline}</Styled.Highlight>!
-      </Styled.NextButton>}
+      {nextObj && (
+        <Styled.NextButton href={nextObj.slug}>
+          What{"'"}s Next? Check out{" "}
+          <Styled.Highlight>{nextObj.tagline}</Styled.Highlight>!
+        </Styled.NextButton>
+      )}
       <Styled.LinksContainer>
         <Styled.Github>
           <Styled.Link target="_blank" href="https://github.com/WilliamCox7">
@@ -23,14 +26,26 @@ const Footer = ({ nextObj, background = theme.colors.grey[1000] }: Props) => {
           </Styled.Link>
         </Styled.Github>
         <Styled.Linkedin>
-          <Styled.Link target="_blank" href="https://www.linkedin.com/in/william-cox/">
+          <Styled.Link
+            target="_blank"
+            href="https://www.linkedin.com/in/william-cox/"
+          >
             <Styled.LinkImage src="linkedin.svg" />
             <Styled.LinkText>/in/william-cox</Styled.LinkText>
           </Styled.Link>
         </Styled.Linkedin>
+        <Styled.Linkedin>
+          <Styled.Link
+            target="_blank"
+            href="https://www.toptal.com/resume/william-cox"
+          >
+            <Styled.LinkImage src="toptal.svg" />
+            <Styled.LinkText>Toptal Resume</Styled.LinkText>
+          </Styled.Link>
+        </Styled.Linkedin>
       </Styled.LinksContainer>
     </Styled.Section>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

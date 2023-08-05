@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
-import Styled from '@components/Bubbles/Bubbles.style'
-import theme from '@theme'
+import { useState, useRef, useEffect, useCallback } from "react";
+import Styled from "@components/Bubbles/Bubbles.style";
+import theme from "@theme";
 
 interface Position {
   x: number;
@@ -9,7 +9,7 @@ interface Position {
 
 interface Props {
   tech: string[];
-  brand: 'brand' | 'hubsuite' | 'niteladder' | 'dmvp';
+  brand: "brand" | "hubsuite" | "niteladder" | "dmvp" | "milliman";
 }
 
 const TECH_MAGNATISM = 15000;
@@ -21,15 +21,20 @@ const NUM_SML_BUBBLES = 60;
 const SML_MAGNATISM = 8000;
 
 const Bubbles = ({ tech, brand }: Props) => {
-
   const [magnetsOn, setMagnetsOn] = useState<boolean>(true);
-  const [position, setPosition] = useState<'relative' | 'absolute'>('relative');
-  
+  const [position, setPosition] = useState<"relative" | "absolute">("relative");
+
   const mouse = useRef<Position>({ x: 0, y: 0 });
-  
-  const techBubblePos = useRef<Position[]>([...new Array(tech.length)].map(v => ({ x: 0, y: 0 })));
-  const medBubblePos = useRef<Position[]>([...new Array(NUM_MED_BUBBLES)].map(v => ({ x: 0, y: 0 })));
-  const smlBubblePos = useRef<Position[]>([...new Array(NUM_SML_BUBBLES)].map(v => ({ x: 0, y: 0 })));
+
+  const techBubblePos = useRef<Position[]>(
+    [...new Array(tech.length)].map((v) => ({ x: 0, y: 0 }))
+  );
+  const medBubblePos = useRef<Position[]>(
+    [...new Array(NUM_MED_BUBBLES)].map((v) => ({ x: 0, y: 0 }))
+  );
+  const smlBubblePos = useRef<Position[]>(
+    [...new Array(NUM_SML_BUBBLES)].map((v) => ({ x: 0, y: 0 }))
+  );
 
   const techBubbleRef = useRef<HTMLDivElement>(null);
   const medBubbleRef = useRef<HTMLDivElement>(null);
@@ -40,11 +45,15 @@ const Bubbles = ({ tech, brand }: Props) => {
   const intervalRef = useRef<NodeJS.Timer | null>(null);
 
   const handleAssignData = useCallback(() => {
-    if (!techBubbleRef?.current?.children || !medBubbleRef?.current?.children || !smlBubbleRef?.current?.children) {
-      console.warn('handleAssignData:', {
-        '!techBubbleRef?.current?.children': !techBubbleRef?.current?.children,
-        '!medBubbleRef?.current?.children': !medBubbleRef?.current?.children,
-        '!smlBubbleRef?.current?.children': !smlBubbleRef?.current?.children,
+    if (
+      !techBubbleRef?.current?.children ||
+      !medBubbleRef?.current?.children ||
+      !smlBubbleRef?.current?.children
+    ) {
+      console.warn("handleAssignData:", {
+        "!techBubbleRef?.current?.children": !techBubbleRef?.current?.children,
+        "!medBubbleRef?.current?.children": !medBubbleRef?.current?.children,
+        "!smlBubbleRef?.current?.children": !smlBubbleRef?.current?.children,
       });
       return;
     }
@@ -54,23 +63,30 @@ const Bubbles = ({ tech, brand }: Props) => {
     assignData(techChildren, techBubblePos);
     assignData(medChildren, medBubblePos);
     assignData(smlChildren, smlBubblePos);
-    setPosition('absolute');
+    setPosition("absolute");
   }, []);
 
-  const assignData = (children: Element[], bubblePos: React.MutableRefObject<Position[]>) => {
+  const assignData = (
+    children: Element[],
+    bubblePos: React.MutableRefObject<Position[]>
+  ) => {
     children.forEach((e, i) => {
       const { left, top } = e.getBoundingClientRect();
       bubblePos.current[i].x = left;
       bubblePos.current[i].y = top;
     });
-  }
+  };
 
   const handleMagnatism = useCallback(() => {
-    if (!techBubbleRef?.current?.children || !medBubbleRef?.current?.children || !smlBubbleRef?.current?.children) {
-      console.warn('handleMagnatism:', {
-        '!techBubbleRef?.current?.children': !techBubbleRef?.current?.children,
-        '!medBubbleRef?.current?.children': !medBubbleRef?.current?.children,
-        '!smlBubbleRef?.current?.children': !smlBubbleRef?.current?.children,
+    if (
+      !techBubbleRef?.current?.children ||
+      !medBubbleRef?.current?.children ||
+      !smlBubbleRef?.current?.children
+    ) {
+      console.warn("handleMagnatism:", {
+        "!techBubbleRef?.current?.children": !techBubbleRef?.current?.children,
+        "!medBubbleRef?.current?.children": !medBubbleRef?.current?.children,
+        "!smlBubbleRef?.current?.children": !smlBubbleRef?.current?.children,
       });
       return;
     }
@@ -85,26 +101,31 @@ const Bubbles = ({ tech, brand }: Props) => {
     }, 15);
   }, []);
 
-  const magnatize = (children: any, magnatism: number, bubblePos: React.MutableRefObject<Position[]>) => {
-    let forceX = 0, forceY = 0;
+  const magnatize = (
+    children: any,
+    magnatism: number,
+    bubblePos: React.MutableRefObject<Position[]>
+  ) => {
+    let forceX = 0,
+      forceY = 0;
     children.forEach((e: any, i: number) => {
       const { left, top } = e.getBoundingClientRect();
       const distanceX = mouse.current.x - left;
       const distanceY = mouse.current.y - top;
       const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-      const powerX = left - distanceX / distance * magnatism / distance;
-      const powerY = top - distanceY / distance * magnatism / distance;
+      const powerX = left - ((distanceX / distance) * magnatism) / distance;
+      const powerY = top - ((distanceY / distance) * magnatism) / distance;
       forceX = (forceX + (bubblePos.current[i].x - left) / 2) / 2.1;
       forceY = (forceY + (bubblePos.current[i].y - top) / 2) / 2.1;
       e.style.left = `${powerX + forceX}px`;
       e.style.top = `${powerY + forceY}px`;
     });
-  }
+  };
 
   const setMouseToCenter = useCallback(() => {
     if (!thresholdRef?.current) return;
     const { width, height, top } = thresholdRef.current.getBoundingClientRect();
-    mouse.current = { x: width / 2, y: (height / 2) + top };
+    mouse.current = { x: width / 2, y: height / 2 + top };
   }, []);
 
   const turnOffInterval = useCallback(() => {
@@ -121,8 +142,15 @@ const Bubbles = ({ tech, brand }: Props) => {
     turnOffInterval();
     const mousemove = (e: MouseEvent) => {
       if (!thresholdRef?.current) return setMouseToCenter();
-      const { top, bottom, right } = thresholdRef.current.getBoundingClientRect();
-      if (e.pageY <= top + 10 || e.pageY > bottom || e.pageX <= 10 || e.pageX >= right - 10) return setMouseToCenter();
+      const { top, bottom, right } =
+        thresholdRef.current.getBoundingClientRect();
+      if (
+        e.pageY <= top + 10 ||
+        e.pageY > bottom ||
+        e.pageX <= 10 ||
+        e.pageX >= right - 10
+      )
+        return setMouseToCenter();
       mouse.current = { x: e.pageX, y: e.pageY };
       turnOffInterval();
       setMagnetsOn(true);
@@ -135,15 +163,15 @@ const Bubbles = ({ tech, brand }: Props) => {
         setMouseToCenter();
         setMagnetsOn(true);
       }
-    }
-    window.addEventListener('mousemove', mousemove);
-    window.addEventListener('scroll', scroll);
+    };
+    window.addEventListener("mousemove", mousemove);
+    window.addEventListener("scroll", scroll);
     return () => {
-      window.removeEventListener('mousemove', mousemove);
-      window.removeEventListener('scroll', scroll);
+      window.removeEventListener("mousemove", mousemove);
+      window.removeEventListener("scroll", scroll);
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (timeoutRef.current) clearInterval(timeoutRef.current);
-    }
+    };
   }, [turnOffInterval, setMouseToCenter, handleAssignData]);
 
   useEffect(() => {
@@ -171,6 +199,6 @@ const Bubbles = ({ tech, brand }: Props) => {
       </Styled.BubbleContainer>
     </Styled.Section>
   );
-}
+};
 
 export default Bubbles;

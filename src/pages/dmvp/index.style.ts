@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import Image from 'next/image'
-import theme from '@theme'
+import styled from "styled-components";
+import Image from "next/image";
+import theme from "@theme";
 
 const Page = styled.main`
   display: flex;
@@ -40,18 +40,12 @@ interface SectionContainerProps {
 }
 
 const SectionContainer = styled.div<SectionContainerProps>`
-  background: ${p => p.background};
+  background: ${(p) => p.background};
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 150px 0px;
-  @media(max-width: 1200px) {
-    padding: 75px 0px;
-  }
-  @media(max-width: 600px) {
-    padding: 50px 0px;
-  }
+  padding: 50px 0px;
 `;
 
 const Button = styled.a`
@@ -73,7 +67,7 @@ interface ResponsiveImageProps {
 }
 
 const ResponsiveImage = styled(Image)<ResponsiveImageProps>`
-  box-shadow: ${p => p.noShadow ? 'none' : theme.boxShadow.default};
+  box-shadow: ${(p) => (p.noShadow ? "none" : theme.boxShadow.default)};
   max-width: 100%;
 `;
 
@@ -90,7 +84,7 @@ const Styled = {
   SectionContainer,
   Button,
   ResponsiveImage,
-  CopyContainer
-}
+  CopyContainer,
+};
 
-export default Styled
+export default Styled;

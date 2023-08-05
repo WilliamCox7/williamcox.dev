@@ -1,14 +1,18 @@
 {
-  "dmvp": {
-    "tagline": "my web app I built for Hubsuite",
+  "milliman": {
+    "tagline": "my Next.js app I built for Hubsuite",
     "slug": "hubsuite"
   },
   "hubsuite": {
-    "tagline": "my electron app called Nite Ladder",
+    "tagline": "my Electron.js app called Nite Ladder",
     "slug": "niteladder"
   },
   "niteladder": {
-    "tagline": "my mobile app called DMVP",
+    "tagline": "my React Native app called DMVP",
     "slug": "dmvp"
+  },
+  "dmvp": {
+    "tagline": "my work I did for Milliman LTS",
+    "slug": "milliman"
   }
 }

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import theme from '@theme'
+import styled from "styled-components";
+import theme from "@theme";
 
 interface SectionProps {
   background: string;
@@ -13,7 +13,7 @@ const Section = styled.section<SectionProps>`
   justify-content: center;
   align-items: center;
   border-top: solid 1px ${theme.colors.brand.default};
-  background: ${p => p.background};
+  background: ${(p) => p.background};
 `;
 
 const NextButton = styled.a`
@@ -30,10 +30,10 @@ const Highlight = styled.span`
 
 const LinksContainer = styled.div`
   display: flex;
-  width: 500px;
+  width: 800px;
   justify-content: space-between;
   padding: 30px;
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -48,8 +48,13 @@ const Linkedin = styled.div`
   cursor: pointer;
 `;
 
+const Toptal = styled.div`
+  cursor: pointer;
+`;
+
 const Link = styled.a`
   display: flex;
+  align-items: center;
   color: ${theme.colors.grey[400]};
 `;
 
@@ -58,7 +63,7 @@ const LinkText = styled.h2`
 `;
 
 const LinkImage = styled.img`
-  width: 40px;
+  height: 40px;
   margin-right: 10px;
 `;
 
@@ -69,9 +74,10 @@ const Styled = {
   LinksContainer,
   Github,
   Linkedin,
+  Toptal,
   Link,
   LinkText,
   LinkImage,
 };
 
-export default Styled
+export default Styled;

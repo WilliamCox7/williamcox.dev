@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import theme from '@theme'
+import styled from "styled-components";
+import theme from "@theme";
 
 const Page = styled.main`
   display: flex;
@@ -10,7 +10,7 @@ const Page = styled.main`
 
 const ContentContainer = styled.div`
   width: ${theme.screens.mx};
-  @media(max-width: 1350px) {
+  @media (max-width: 1350px) {
     width: 100%;
   }
 `;
@@ -38,7 +38,7 @@ const WorkContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin-bottom: 60px;
-  @media(max-width: 1100px) {
+  @media (max-width: 1100px) {
     flex-direction: column;
     align-items: center;
   }
@@ -69,7 +69,7 @@ const Work = styled.a`
   justify-content: space-around;
   margin: 20px;
   margin-bottom: 50px;
-  @media(max-width: 1100px) {
+  @media (max-width: 1100px) {
     width: calc(100% - 40px);
     max-width: 600px;
   }
@@ -127,6 +127,6 @@ const Styled = {
   WorkName,
   WorkCopy,
   SeeMore,
-}
+};
 
-export default Styled
+export default Styled;

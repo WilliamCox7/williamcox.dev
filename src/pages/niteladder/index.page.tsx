@@ -1,22 +1,22 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Hero from '@components/Hero/Hero'
-import HeroImage from '@components/HeroImage/HeroImage'
-import ContentBreak from '@components/ContentBreak/ContentBreak'
-import PreserveImage from '@components/PreserveImage/PreserveImage'
-import Copy from '@components/Copy/Copy'
-import SplitScreen from '@components/SplitScreen/SplitScreen'
-import Footer from '@components/Footer/Footer'
-import Styled from '@pages/niteladder/index.style'
-import nextUp from '@data/next-up.json'
-import theme from '@theme'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Hero from "@components/Hero/Hero";
+import HeroImage from "@components/HeroImage/HeroImage";
+import ContentBreak from "@components/ContentBreak/ContentBreak";
+import PreserveImage from "@components/PreserveImage/PreserveImage";
+import Copy from "@components/Copy/Copy";
+import SplitScreen from "@components/SplitScreen/SplitScreen";
+import Footer from "@components/Footer/Footer";
+import Styled from "@pages/niteladder/index.style";
+import nextUp from "@data/next-up.json";
+import theme from "@theme";
 
 const TECH = [
-  'node.svg',
-  'express.svg',
-  'mysql.svg',
-  'react.svg',
-  'electron.svg',
+  "node.svg",
+  "express.svg",
+  "mysql.svg",
+  "react.svg",
+  "electron.svg",
 ];
 
 const NiteLadder: NextPage = () => {
@@ -28,7 +28,6 @@ const NiteLadder: NextPage = () => {
       </Head>
 
       <Styled.Page>
-
         <Hero title="Nite Ladder" tech={TECH} brand="niteladder">
           <HeroImage>
             <Styled.LogoContainer>
@@ -38,16 +37,37 @@ const NiteLadder: NextPage = () => {
         </Hero>
 
         <Styled.IntroContainer>
-          <Styled.Intro>Electron.js application dependent on a Node.js backend</Styled.Intro>
+          <Styled.Intro>
+            Electron.js application dependent on a Node.js backend
+          </Styled.Intro>
         </Styled.IntroContainer>
 
         <Styled.SectionContainer>
-          <ContentBreak icon="portfolio.svg" header="Case Study" copy="Short summary about a desktop app I wrote" />
-          <PreserveImage src="/niteladder-screenshot.jpeg" initWidth={1500} initHeight={900} width={1000} height={600} quality={100} />
+          <ContentBreak
+            icon="portfolio.svg"
+            header="Case Study"
+            copy="Short summary about a desktop app I built"
+          />
+          <PreserveImage
+            src="/niteladder-screenshot.jpeg"
+            initWidth={1500}
+            initHeight={900}
+            width={1000}
+            height={600}
+            quality={100}
+          />
           <Styled.CopyContainer>
-            <Copy header="You can download my app on Windows PC!" cta={
-              <Styled.Button target="_blank" href="https://www.niteladder.com/learn-more">Go To Landing Page</Styled.Button>
-            } />
+            <Copy
+              header="This has sadly been discontinued but please visit niteladder.com!"
+              cta={
+                <Styled.Button
+                  target="_blank"
+                  href="https://www.niteladder.com/learn-more"
+                >
+                  Go To Landing Page
+                </Styled.Button>
+              }
+            />
           </Styled.CopyContainer>
         </Styled.SectionContainer>
 
@@ -56,82 +76,76 @@ const NiteLadder: NextPage = () => {
           <SplitScreen
             wrap="1340px"
             leftChild={
-              <Copy copy="Fortnite doesn't have a ranked mode. It has a competitive playlist but it doesn't really incentivize smart or quality gameplay. So I wrote an app that gives players something to play for." />
+              <Copy copy="Fortnite's competitive playlist didn't incentivize smart or quality gameplay. So I wrote an app that gives players something to play for." />
             }
             rightChild={
-              <Styled.ResponsiveImage src="/niteladder-fortnite.jpg" width={400} height={600} />
-            } />
+              <Styled.ResponsiveImage
+                src="/niteladder-fortnite.jpg"
+                width={400}
+                height={600}
+              />
+            }
+          />
         </Styled.SectionContainer>
 
         <Styled.SectionContainer>
-          <ContentBreak header="Architecture" copy="Electron.js + Node.js + MySQL" />
+          <ContentBreak
+            header="Architecture"
+            copy="Electron.js + Node.js + MySQL"
+          />
           <SplitScreen
             wrap="1340px"
             noReverse
             leftChild={
-              <Styled.ResponsiveImage src="/niteladder-architecture.jpeg" width={640} height={538} />
+              <Styled.ResponsiveImage
+                src="/niteladder-architecture.svg"
+                width={640}
+                height={538}
+              />
             }
             rightChild={
-              <Copy copy="My app forwards data it parses from the game replay file Fortnite emits while you play and stores it in a MySQL database." />
-            } />
+              <Copy copy="My app parses game replay files and converts it into measurable data." />
+            }
+          />
         </Styled.SectionContainer>
 
         <Styled.SectionContainer background={theme.colors.grey[1000]}>
-          <ContentBreak header="Parsing Game Files" copy="How I'm getting the data" />
+          <ContentBreak
+            header="Parsing Game Files"
+            copy="How I'm getting the data"
+          />
           <SplitScreen
             wrap="2000px"
             column
             leftChild={
-              <Copy wide copy="The electron app creates a child process that watches a directory where game files are managed. When a file is updated, it checks for an encryption key. With that key, it steps through and finds stats like eliminations and placement." />
+              <Copy
+                wide
+                copy="The electron app creates a child process that watches a directory where game files are managed. When a file is updated, it checks for an encryption key. With that key, it steps through and finds stats like eliminations and placement."
+              />
             }
             rightChild={
-              <PreserveImage src="/niteladder-watcher.png" width={838} height={586} quality={100} />
-            } />
+              <PreserveImage
+                src="/niteladder-watcher.png"
+                width={838}
+                height={586}
+                quality={100}
+              />
+            }
+          />
         </Styled.SectionContainer>
 
         <Styled.SectionContainer>
-          <ContentBreak header="What This Achieves" copy="What do my users get out of this?" />
-          <SplitScreen
-            wrap="2000px"
-            column
-            noReverse
-            leftChild={
-              <Styled.ResponsiveImage src="/niteladder-format.jpg" width={982} height={633} quality={100} />
-            }
-            rightChild={
-              <Copy wide copy="Normally in Fortnite, players just try to get as many eliminations as they can. This leads to bad gameplay. To combat this, my app awards more points to players who get eliminations in the late part of the match. This causes players to be smart and cautious which provides a better experience for everyone." />
-            } />
-        </Styled.SectionContainer>
-
-        <Styled.SectionContainer>
-          <SplitScreen
-            wrap="1340px"
-            noReverse
-            leftChild={
-              <Copy copy="The app displays a histogram which shows the distribution of users on the ranked ladder. Seeing where you rank relative to the community provides a desire to play well in each game you are a part of." />
-            }
-            rightChild={
-              <Styled.ResponsiveImage src="/niteladder-ladder.jpg" width={549} height={606} quality={100} />
-            } />
-        </Styled.SectionContainer>
-
-        <Styled.SectionContainer>
-          <SplitScreen
-            wrap="1340px"
-            noReverse
-            leftChild={
-              <Styled.ResponsiveImage src="/niteladder-fare.jpg" width={539} height={710} quality={100} />
-            }
-            rightChild={
-              <Copy copy="Lastly, my app has a pay-to-play system. The higher you climb on the ladder, the more expensive the &quot;fare&quot; is. This gives meaning to your ranking." />
-            } />
+          <ContentBreak header="Post Mortem" copy="Why didn't this take off?" />
+          <Copy
+            wide
+            copy="I really hit a wall when it came to marketing the app. I had a moment of excitement when a Twitch streamer was using my app every day but he averaged 10 viewers so it just didn't get anywhere. I will likely re-visit this one someday in the future."
+          />
         </Styled.SectionContainer>
 
         <Footer nextObj={nextUp.niteladder} />
-
       </Styled.Page>
     </>
   );
-}
+};
 
 export default NiteLadder;

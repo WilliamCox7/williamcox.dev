@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import theme from '@theme'
+import styled from "styled-components";
+import theme from "@theme";
 
 const Section = styled.section`
-  margin-bottom: 150px;
-  @media(max-width: 1200px) {
+  margin-bottom: 50px;
+  @media (max-width: 1200px) {
     margin-bottom: 75px;
   }
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     margin-bottom: 50px;
   }
 `;
@@ -21,7 +21,7 @@ const ContentHeaderContainer = styled.div`
 const ContentHeaderImage = styled.img`
   width: 50px;
   margin-right: -5px;
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     width: 36px;
   }
 `;
@@ -33,7 +33,7 @@ const ContentHeader = styled.h1`
   margin: 0;
   text-align: center;
   padding: 0px 20px;
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     font-size: 28px;
   }
 `;
@@ -76,4 +76,4 @@ const Styled = {
   Copy,
 };
 
-export default Styled
+export default Styled;

@@ -1,4 +1,4 @@
-import Styled from '@components/ContentBreak/ContentBreak.style'
+import Styled from "@components/ContentBreak/ContentBreak.style";
 
 interface Props {
   icon?: string;
@@ -19,7 +19,7 @@ const ContentBreak = ({ icon, header, copy }: Props) => {
         <Styled.Copy>{copy}</Styled.Copy>
       </Styled.LinesContainer>
     </Styled.Section>
-  )
-}
+  );
+};
 
-export default ContentBreak
+export default ContentBreak;

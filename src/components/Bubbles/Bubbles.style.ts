@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import theme from '@theme'
+import styled from "styled-components";
+import theme from "@theme";
 
 const Section = styled.section`
   width: 100vw;
@@ -11,7 +11,7 @@ const Section = styled.section`
   flex-direction: column;
   position: absolute;
   z-index: 0;
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     visibility: hidden;
   }
 `;
@@ -35,12 +35,12 @@ const TechBubble = styled.div`
 `;
 
 interface MedBubbleProps {
-  brand: 'brand' | 'hubsuite' | 'niteladder' | 'dmvp';
+  brand: "brand" | "hubsuite" | "niteladder" | "dmvp" | "milliman";
 }
 
 const MedBubble = styled.div<MedBubbleProps>`
   position: relative;
-  border: solid 1px ${p => theme.colors[p.brand].default};
+  border: solid 1px ${(p) => theme.colors[p.brand].default};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +74,7 @@ const Styled = {
   TechBubble,
   MedBubble,
   SmlBubble,
-  SVG
-}
+  SVG,
+};
 
 export default Styled;
