@@ -63,6 +63,8 @@ const Line2 = styled.div`
 const Copy = styled.p`
   color: ${theme.colors.grey[400]};
   margin-top: 30px;
+  text-align: center;
+  padding: 0px 30px;
 `;
 
 const Styled = {

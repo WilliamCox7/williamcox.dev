@@ -19,7 +19,7 @@ const Section = styled.section<SectionProps>`
 const NextButton = styled.a`
   color: ${theme.colors.grey[50]};
   font-size: 24px;
-  padding: 30px;
+  padding: 30px 0px;
   line-height: 36px;
   text-align: center;
 `;
