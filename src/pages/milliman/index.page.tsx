@@ -78,11 +78,10 @@ const NiteLadder: NextPage = () => {
               />
             }
             rightChild={
-              <PreserveImage
+              <Styled.ResponsiveImage
                 src="/milliman-decomposition.jpg"
                 width={950}
                 height={554}
-                quality={100}
               />
             }
           />
